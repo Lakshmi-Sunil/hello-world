@@ -73,14 +73,22 @@
   		}
 	</style>
 	<script>
+	let string=""
 	function display(val)
+	{
+	string+=val
+	if (document.getElementById("result").value!="*")
 	{
 	document.getElementById("result").value+=val
 	}
+	else
+	{
+	document.getElementById("result").value+='x'
+	}
+	}
 	function solve()
 	{
-	let x=document.getElementById("result").value
-	let y= eval(x)
+	let y= eval(string)
 	document.getElementById("result").value=y
 	}
 	function clr(){
@@ -101,8 +109,8 @@
 	</div>
 	<div class="row">
 		<button id="clear" class="big" onclick="clr()"><b>AC</b></button>
-		<button id="divide" class="operator-style" value="/">/</button>
-		<button id="multiply" class="operator-style" value="*">x</button>
+		<button id="divide" class="operator-style" value="/" onclick="display('/')">/</button>
+		<button id="multiply" class="operator-style" value="*" onclick="display('*')">x</button>
 	</div>
 	<div class="row">
 		<button id="seven" value="7" onclick="display('7')">7</button>
