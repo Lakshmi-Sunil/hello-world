@@ -1,0 +1,131 @@
+<!--calculator -->
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		@import "https://fonts.googleapis.com/css?family=Aldrich&display=swap";
+		@import "https://fonts.googleapis.com/css?family=Allerta+Stencil&display=swap";
+		body{
+		background:#F5F5F5;
+		display: flex;
+		height:100vh;
+		align-items: center;
+		justify-content: center;
+		cursor:default;
+		}
+		.heading {
+ 		text-align: center;
+ 		font-family: 'Aldrich', sans-serif;
+  		margin-top: 15px;
+  		}
+		.container{
+		border: 2px solid #3f4754;
+		padding: 5px;
+		background: black;
+		width: 400px;
+		position: relative;
+		}
+		#result{
+		position:relative;
+		text-align: right;
+		font-size:20px;
+		width:376px;
+		height:56px;
+		display:block;
+		margin: 0 auto;
+		font-family: 'Allerta Stencil', sans-serif;
+		}
+		button{
+		color: white;
+		position: relative;
+		width: 94px;
+		height: 65px;
+		border: 1px solid black;
+		font-size: 20px;
+		cursor: default;
+		margin-top:5px;
+		background:#666666;
+		}
+		button:hover {
+		color: black;
+		border: 1px solid white;
+		z-index:3;
+		}
+		.big{
+		width:48%;
+		}
+		#clear{
+		background: #A9A9A9;
+		color:#ac3939;
+		}
+		.big:hover{
+		border: 1px solid white;
+		z-index:3;
+		}
+		.operator-style{
+		background:#A9A9A9;
+		}
+		.equalsStyle{
+    	background: #004466;
+    	margin: 5px;
+    	position: absolute;
+    	height: 135px;
+  		}
+	</style>
+	<script>
+	function display(val)
+	{
+	document.getElementById("result").value+=val
+	}
+	function solve()
+	{
+	let x=document.getElementById("result").value
+	let y= eval(x)
+	document.getElementById("result").value=y
+	}
+	function clr(){
+	document.getElementById("result").value=""
+	}
+	</script>
+	<title>Calcualtor</title>
+</head>
+<body>
+	<div>
+	<div>
+	<h1 class="heading"> Calculator</h1>
+	<h2 class="heading"> Using HTML,CSS and JS </h2><br>
+	</div>
+	<div class="container">
+	<div class="row">
+		<input type="text" id="result"/>
+	</div>
+	<div class="row">
+		<button id="clear" class="big" onclick="clr()"><b>AC</b></button>
+		<button id="divide" class="operator-style" value="/">/</button>
+		<button id="multiply" class="operator-style" value="*">x</button>
+	</div>
+	<div class="row">
+		<button id="seven" value="7" onclick="display('7')">7</button>
+		<button id="eight" value="8" onclick="display('8')">8</button>
+		<button id="nine" value="9" onclick="display('9')">9</button>
+		<button id="sub" class=operator-style value="-" onclick="display('-')">-</button>
+	</div>
+	<div class="row">
+		<button id="four" value="4" onclick="display('4')">4</button>
+		<button id="five" value="5" onclick="display('5')">5</button>
+		<button id="six" value="6" onclick="display('6')">6</button>
+		<button id="seven" class=operator-style value="+" onclick="display('+')">+</button>
+	</div>
+	<div class="row">
+		<button id="one" value="1" onclick="display('1')">1</button>
+		<button id="two" value="2" onclick="display('2')">2</button>
+		<button id="three" value="3" onclick="display('3')">3</button>
+		<button id="equals" class="equalsStyle" value="=" onclick="solve()">=</button>
+	</div>
+	<button id="zero" class="big" value="0" onclick="display('0')">0</button>
+	<button id="dot" value="." onclick="display('.')">.</button>
+	
+	</div>
+	</div>
+</body>
+
